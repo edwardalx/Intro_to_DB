@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS Order_Details(
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
 
-ALTER TABLE order_details
-DROP Foreign Key order_details_ibfk_1;
-DROP TABLE order_details;
+-- ALTER TABLE order_details
+-- DROP Foreign Key order_details_ibfk_1;
+-- DROP TABLE order_details;
 -- ALTER TABLE Orders
 -- ADD order_date DATE;
 -- SHOW TABLES;
