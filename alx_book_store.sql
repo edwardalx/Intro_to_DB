@@ -35,12 +35,15 @@ CREATE TABLE IF NOT EXISTS Orders (
 CREATE TABLE IF NOT EXISTS Order_Details(
     order_detail_id INT PRIMARY KEY,
     order_id INT,
-    Foreign Key (order_id) REFERENCES Orders(order_id),
     book_id INT,
-    Foreign Key (book_id) REFERENCES Books(book_id),
-    quantity DOUBLE
+    quantity DOUBLE,
+    Foreign Key (order_id) REFERENCES Orders(order_id),
+    Foreign Key (book_id) REFERENCES Books(book_id)
 );
 
+ALTER TABLE order_details
+DROP Foreign Key order_details_ibfk_1;
+DROP TABLE order_details;
 -- ALTER TABLE Orders
 -- ADD order_date DATE;
 -- SHOW TABLES;
