@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Customers(
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT PRIMARY KEY,
     customer_id INT,
+    order_date DATE,
     Foreign Key (customer_id) REFERENCES Customers(customer_id)
 );
 CREATE TABLE IF NOT EXISTS Order_Details(
@@ -39,4 +40,7 @@ CREATE TABLE IF NOT EXISTS Order_Details(
     Foreign Key (book_id) REFERENCES Books(book_id),
     quantity DOUBLE
 );
+
+-- ALTER TABLE Orders
+-- ADD order_date DATE;
 -- SHOW TABLES;
