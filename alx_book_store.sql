@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Books(
   author_id INT,
   price DOUBLE,
   publication_date DATE,
-  CONSTRAINT fk_customer_id FOREIGN Key (author_id) REFERENCES authors(author_id)
+  CONSTRAINT fk_customer_id FOREIGN Key (author_id) REFERENCES Authors(author_id)
 );
 
 CREATE TABLE IF NOT EXISTS Authors(
@@ -29,26 +29,14 @@ CREATE TABLE IF NOT EXISTS Customers(
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT PRIMARY KEY,
     customer_id INT,
-    Foreign Key (customer_id) REFERENCES customers(customer_id)
+    Foreign Key (customer_id) REFERENCES Customers(customer_id)
 );
 CREATE TABLE IF NOT EXISTS Order_Details(
     order_detail_id INT PRIMARY KEY,
     order_id INT,
-    Foreign Key (order_id) REFERENCES orders(order_id),
+    Foreign Key (order_id) REFERENCES Orders(order_id),
     book_id INT,
-    Foreign Key (book_id) REFERENCES books(book_id),
+    Foreign Key (book_id) REFERENCES Books(book_id),
     quantity DOUBLE
--- );
--- RENAME TABLE books TO myBooks;
--- RENAME TABLE myBooks TO Books;
--- RENAME TABLE authors TO myAuthors;
--- RENAME TABLE myAuthors TO Authors;
-
--- RENAME TABLE customers TO myCustomers;
--- RENAME TABLE myCustomers TO Customers;
-
--- RENAME TABLE orders TO myOrders;
--- RENAME TABLE myOrders TO Orders;
--- RENAME TABLE order_details TO myOrder_Details;
--- RENAME TABLE myOrder_details TO Order_Details;
+);
 -- SHOW TABLES;
