@@ -10,4 +10,3 @@ try:
     mydb.commit()
 except mysql.connector.Error:
     print("These is an error with the connector") 
-
